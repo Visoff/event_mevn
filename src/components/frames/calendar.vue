@@ -1,5 +1,6 @@
 <template>
     <div class="calendar">
+        <div class="month_name">{{ new Date().toLocaleString("ru", {month:"long"}) }}</div>
         <div v-for="row in calendar" :key="row" class="row">
             <div v-for="el in row" :key="el" class="el">{{ el }}</div>
         </div>
@@ -35,6 +36,12 @@ export default {
 </script>
 
 <style>
+div.month_name {
+    display: grid;
+    width: 100%;
+    place-items: center;
+}
+
 div.calendar {
     height: 100%;
     width: 100%;
