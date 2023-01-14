@@ -16,3 +16,11 @@ export default {
     components:{schedule_event}
 }
 </script>
+
+<style>
+div.day_schedule {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+</style>

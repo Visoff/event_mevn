@@ -20,7 +20,8 @@ div.schedule_event {
     flex-direction: column;
     height: fit-content;
     width: 100%;
-    outline: 1px solid red;
+    background-color: #ffffff40;
+    border: 1px solid black;
 }
 
 div.schedule_event > div.name {
