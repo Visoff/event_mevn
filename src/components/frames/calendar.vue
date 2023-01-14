@@ -6,7 +6,7 @@
     </div>
     <div class="calendar">
         <div v-for="row in calendar" :key="row" class="row">
-            <div v-for="el in row" :key="el" :class="(() => {var a = ''; if (el.current) {a+=' current'}; return 'el'+a})()">{{ el }}</div>
+            <div v-for="el in row" :key="el" :class="(() => {var a = ''; if (el.current) {a+=' current'}; return 'el'+a})()">{{ el.date }}</div>
         </div>
     </div>
 </template>
