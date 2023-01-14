@@ -47,4 +47,9 @@ div.row {
     grid-auto-flow: column;
     gap: var(--gap);
 }
+
+div.el {
+    display: grid;
+    place-items: center;
+}
 </style>
