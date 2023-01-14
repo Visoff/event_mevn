@@ -31,7 +31,7 @@ export default {
     height: 100%;
 }
 
-.calendar_parent {
+.calendar_parent, .day_schedule_parent {
     width: calc(100% - 3rem);
     aspect-ratio: 1;
     padding: .5rem;
@@ -39,5 +39,9 @@ export default {
 
     background-color: #ffffff40;
     border-radius: 1rem;
+}
+
+div.day_schedule_parent {
+    background-color: #00000040;
 }
 </style>
