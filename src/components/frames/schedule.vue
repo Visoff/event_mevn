@@ -43,5 +43,8 @@ export default {
 
 div.day_schedule_parent {
     background-color: #00000040;
+    aspect-ratio: unset;
+    height: fit-content;
+    overflow-y: scroll;
 }
 </style>
