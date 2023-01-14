@@ -70,5 +70,6 @@ class Event{
 }
 
 module.exports = {
-    User
+    User,
+    Event
 }
