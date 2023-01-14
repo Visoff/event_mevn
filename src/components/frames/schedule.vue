@@ -42,7 +42,8 @@ export default {
 }
 
 div.day_schedule_parent {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
     background-color: #00000040;
     aspect-ratio: unset;
     height: fit-content;
