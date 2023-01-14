@@ -1,5 +1,5 @@
 <template>
-    <div style="width: calc(100% - 2rem); height: calc(100% - 2rem); padding: 1rem;">
+    <div style="width: calc(100% - 2rem); aspect-ratio: 1; padding: 1rem;">
         <calendar />
     </div>
 </template>
