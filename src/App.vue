@@ -43,7 +43,7 @@ data() {
                 icon:"https://visoff.ru/ecosystem/svg/arrow.svg"
             }
         ],
-        activeFrame:0,
+        activeFrame:3,
         user_id:null
     }
 },
