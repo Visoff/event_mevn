@@ -45,7 +45,9 @@ div.day_schedule_parent {
     background-color: #00000040;
     aspect-ratio: unset;
     height: fit-content;
-    max-height: calc(100% - 100vw);
+    max-height: calc(100% - 100vw - 2.25rem);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     overflow-y: scroll;
 }
 </style>
