@@ -44,16 +44,14 @@ client.connect().then(cur => {cursor = cur; on_mongo_connect()})
 
 async function on_mongo_connect() {
     console.log("mongodb is connected")
-    console.log(await new oop.User().from_db(cursor, 1))
+    new oop.Event().import({id:1, name:"CityHeroes"}).update(cursor)
+    console.log(await new oop.Event().from_db(cursor, 1))
 }
 
 const fs = require("fs")
 const https = require("https")
 const http = require("http")
 const ssl_cert = {key: fs.readFileSync(__dirname+'/ssl/cert.key', 'utf8'), cert: fs.readFileSync(__dirname+'/ssl/cert.pem', 'utf8')}
-
-
-//
 
 
 const Vue_path = __dirname+"/dist/"
