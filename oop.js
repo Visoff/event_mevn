@@ -38,6 +38,37 @@ class User {
     }
 }
 
+class Event{
+    constructor() {
+        this.id = 0
+        this.name = ""
+        this.date = new Date()
+    }
+
+    async from_db(cursor, id) {
+        this.import(await cursor.db("CityHeroes").collection("events").findOne({id}))
+        return this
+    }
+    
+    import(obj) {
+        this.id = obj.id != undefined ? obj.id : 0
+        this.name = obj.name != undefined ? obj.name : ""
+        this.date = obj.date != undefined ? obj.date : new Date()
+        return this
+    }
+
+    update(cursor) {
+        (async cursor => {
+            var col = await cursor.db("CityHeroes").collection("events")
+            var old = await col.findOne({"id":this.id})
+            var update = {}
+            if (old.name != this.name) {update.name = this.name}
+            if (old.date != this.date) {update.date = this.date}
+            return await col.updateOne({"id":this.id}, {"$set":update})
+        })(cursor)
+    }
+}
+
 module.exports = {
     User
 }
