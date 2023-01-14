@@ -56,14 +56,14 @@ const ssl_cert = {key: fs.readFileSync(__dirname+'/ssl/cert.key', 'utf8'), cert:
 //
 
 
-const Host_path = __dirname+"/httpdocs/"
+const Vue_path = __dirname+"/dist/"
 
-app.use(express.static(Host_path))
+app.use(express.static(Vue_path))
 
 app.get("/", function(req, res) {
     console.log(123)
     //res.send("send me money please!!!!!")
-    res.sendFile(Host_path+"index.html")
+    res.sendFile(Vue_path+"index.html")
 })
 
 app.get("/api/", function(req, res) {
