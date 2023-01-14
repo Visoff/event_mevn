@@ -38,14 +38,13 @@ export default {
 div.calendar {
     display: grid;
     grid-auto-flow: row;
-    --gap: 1rem;
-    gap: var(--gap);
+    place-items: center;
 }
 
 div.row {
     display: grid;
     grid-auto-flow: column;
-    gap: var(--gap);
+    place-items: center;
 }
 
 div.el {
