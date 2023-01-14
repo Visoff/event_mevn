@@ -22,7 +22,7 @@ div.schedule_event {
     width: 100%;
     background-color: #ffffff40;
     border: 1px solid black;
-    border-radius: 1rem;
+    border-radius: .5rem;
 }
 
 div.schedule_event > div.name {
