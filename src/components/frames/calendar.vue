@@ -42,6 +42,7 @@ export default {
 <style>
 div.month_name {
     display: grid;
+    grid-auto-flow: column;
     width: 100%;
     place-items: center;
     gap: .5rem;
