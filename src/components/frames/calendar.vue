@@ -11,7 +11,7 @@ export default {
     "name":"calendar-comp",
     data() {
         var calendar = []
-        var cursor = new Date().setDate(1)
+        var cursor = new Date(); cursor.setDate(1)
         var month = cursor.getMonth()
         while (cursor.getDay() != 1) {
             cursor.setDate(cursor.getDate()-1)
