@@ -1,14 +1,14 @@
 <template>
     <div class="calendar">
         <div v-for="row in calendar" :key="row">
-            <div v-for="el in row">{{ el }}</div>
+            <div v-for="el in row" :key="el">{{ el }}</div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    "name":"calendar",
+    "name":"calendar-comp",
     data() {
         var calendar = []
         var cursor = new Date().setDate(1)
