@@ -1,5 +1,5 @@
 <template>
-    <div style="width: calc(100% - 2rem); aspect-ratio: 1; padding: 1rem;">
+    <div class="calendar_parent">
         <calendar />
     </div>
 </template>
@@ -14,3 +14,14 @@ export default {
     name:"schedule-page"
 }
 </script>
+
+<style>
+.calendar_parent {
+    width: calc(100% - 2rem);
+    aspect-ratio: 1;
+    padding: .5rem;
+
+    background-color: #ffffff40;
+    border-radius: 1rem;
+}
+</style>
