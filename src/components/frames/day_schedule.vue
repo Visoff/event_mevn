@@ -1,6 +1,10 @@
 <template>
     <div class="day_schedule">
         <schedule_event name="Открытие" time="10:00-11:00" />
+        <schedule_event name="Открытие" time="10:00-11:00" />
+        <schedule_event name="Открытие" time="10:00-11:00" />
+        <schedule_event name="Открытие" time="10:00-11:00" />
+        <schedule_event name="Открытие" time="10:00-11:00" />
     </div>
 </template>
 
