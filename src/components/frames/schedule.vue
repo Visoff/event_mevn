@@ -1,6 +1,8 @@
 <template>
-    <div class="calendar_parent">
-        <calendar />
+    <div class="schedule">
+        <div class="calendar_parent">
+            <calendar />
+        </div>
     </div>
 </template>
 
@@ -16,6 +18,14 @@ export default {
 </script>
 
 <style>
+.schedule {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .calendar_parent {
     width: calc(100% - 3rem);
     aspect-ratio: 1;
