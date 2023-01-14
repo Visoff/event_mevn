@@ -20,6 +20,7 @@ export default {
     width: calc(100% - 2rem);
     aspect-ratio: 1;
     padding: .5rem;
+    margin: 1rem;
 
     background-color: #ffffff40;
     border-radius: 1rem;
