@@ -72,6 +72,7 @@ methods:{
 
 div.main {
     height: calc(100vh - 3.75rem);
+    width: 100vw;
     position: relative;
 }
 </style>
