@@ -67,9 +67,32 @@ class Event{
             return await col.updateOne({"id":this.id}, {"$set":update})
         })(cursor)
     }
+
+    registration={
+        async check_person(cursor, person_id) {
+            return await cursor.db("CityHeroes").collection("event_registrations").findOne({event_id:this.id, person_id})
+        },
+        async register_person(cursor, person_id) {
+            return await cursor.db("CityHeroes").collection("event_registration").insertOne({event_id:this.id, person_id})
+        },
+        async check_team(cursor, team_id) {
+            return await cursor.db("CityHeroes").collection("event_registrations").findOne({event_id:this.id, team_id})
+        },
+        async register_team(cursor, team_id) {
+            return await cursor.db("CityHeroes").collection("event_registration").insertOne({event_id:this.id, team_id})
+        }
+    }
+}
+
+class Team{
+    constructor() {
+        this.id
+        this.name
+    }
 }
 
 module.exports = {
     User,
-    Event
+    Event,
+    Team
 }
