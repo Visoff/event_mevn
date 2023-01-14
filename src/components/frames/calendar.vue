@@ -6,7 +6,7 @@
     </div>
     <div class="calendar">
         <div v-for="row in calendar" :key="row" class="row">
-            <div v-for="el in row" :key="el" class="el">{{ el }}</div>
+            <div v-for="el in row" :key="el" :class="(() => {var a = ''; if (el.current) {a+=' current'}; return 'el'+a})()">{{ el }}</div>
         </div>
     </div>
 </template>
@@ -18,6 +18,7 @@ export default {
         var calendar = []
 
         var cursor = new Date()
+        var month = cursor.getMonth()
         cursor.setMonth(cursor.getMonth()+1)
         cursor.setDate(0)
         while (cursor.getDay() != 0) {cursor.setDate(cursor.getDate()+1)}
@@ -29,7 +30,7 @@ export default {
 
         for (var i = 0; cursor <= end; i++) {
             if (i%7 == 0) {calendar.push([])}
-            calendar[calendar.length-1].push(cursor.getDate())
+            calendar[calendar.length-1].push({date:cursor.getDate(), current:cursor.getMonth()==month})
             cursor.setDate(cursor.getDate()+1)
         }
         return {
@@ -67,5 +68,9 @@ div.row {
 div.el {
     display: grid;
     place-items: center;
+}
+
+div.el:not(.current) {
+    color: #000000a0;
 }
 </style>
