@@ -36,12 +36,15 @@ export default {
 
 <style>
 div.calendar {
+    height: 100%;
+    width: 100%;
     display: grid;
     grid-auto-flow: row;
     place-items: center;
 }
 
 div.row {
+    width: 100%;
     display: grid;
     grid-auto-flow: column;
     place-items: center;
