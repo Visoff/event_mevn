@@ -27,6 +27,7 @@ export default {
             }
             x++
         }
+        console.log(calendar)
         return {
             calendar
         }
