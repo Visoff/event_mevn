@@ -1,6 +1,6 @@
 <template>
     <div class="NavButton" @click="click">
-        <img v-if="false" :src="icon" :class="{active: active}">
+        <img :src="icon" :class="{active: active}">
         <div>{{ name }}</div>
     </div>
 </template>

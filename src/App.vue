@@ -50,7 +50,8 @@ data() {
 mounted() {
     console.log(localStorage)
     if (localStorage.CityHeroes_user_id) {this.user_id = localStorage.CityHeroes_user_id}
-    
+    // Debug
+    caches.open("links").then(el => {el.delete(el.matchAll())})
 },
 methods:{
     setActiveFrame(x) {
