@@ -1,7 +1,7 @@
 <template>
     <div class="calendar">
-        <div v-for="row in calendar" :key="row">
-            <div v-for="el in row" :key="el">{{ el }}</div>
+        <div v-for="row in calendar" :key="row" class="row">
+            <div v-for="el in row" :key="el" class="el">{{ el }}</div>
         </div>
     </div>
 </template>
@@ -33,3 +33,18 @@ export default {
     }
 }
 </script>
+
+<style>
+div.calendar {
+    display: grid;
+    grid-auto-flow: row;
+    --gap: 1rem;
+    gap: var(--gap);
+}
+
+div.row {
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--gap);
+}
+</style>
