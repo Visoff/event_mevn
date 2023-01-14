@@ -41,10 +41,10 @@ export default {
 
 <style>
 div.month_name {
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    place-items: center;
+    place-content: center;
     gap: .5rem;
     font-size: 1.25rem;
 }
