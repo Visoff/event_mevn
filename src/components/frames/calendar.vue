@@ -18,16 +18,13 @@ export default {
         }
         var x = 0
         var y = 0
-        while (cursor.getMonth() <= month) {
-            calendar.push([])
+        while (cursor.getMonth() == month) {
+            if (calendar[x] == undefined) {calendar[x] = []}
             y = 0
-            while (cursor.getDay() >= 1) {
+            while (cursor.getDay() != 1) {
                 calendar[x][y] = cursor.getDate()
-                cursor.setDate(cursor.getDate()+1)
                 y++
             }
-            calendar[x].push(cursor.getDate())
-            cursor.setDate(cursor.getDate()+1)
             x++
         }
         console.log(calendar)
