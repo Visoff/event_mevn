@@ -28,7 +28,7 @@ export default {
             x++
         }
         return {
-            calendar:[]
+            calendar
         }
     }
 }
