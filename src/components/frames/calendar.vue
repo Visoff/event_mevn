@@ -45,7 +45,7 @@ div.month_name {
     flex-direction: row;
     width: 100%;
     place-content: center;
-    gap: .5rem;
+    gap: 1.5rem;
     font-size: 1.25rem;
 }
 
