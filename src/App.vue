@@ -74,5 +74,7 @@ div.main {
     height: calc(100vh - 3.75rem);
     width: 100vw;
     position: relative;
+    top: 0;
+    left: 0;
 }
 </style>

@@ -17,7 +17,7 @@ export default {
 
 <style>
 .calendar_parent {
-    width: calc(100% - 2rem);
+    width: calc(100% - 3rem);
     aspect-ratio: 1;
     padding: .5rem;
     margin: 1rem;
