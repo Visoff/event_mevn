@@ -1,4 +1,5 @@
-if (navigator.serviceWorker) {
+// remove false on production build
+if (false && navigator.serviceWorker) {
     try {navigator.serviceWorker.register("/sw.js")} catch {}
     (async () => {
         var sw = await navigator.serviceWorker.ready
