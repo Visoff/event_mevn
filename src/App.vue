@@ -71,7 +71,7 @@ methods:{
 }
 
 div.main {
-    flex-grow: 1;
+    height: calc(100vh - 3.75rem);
     position: relative;
 }
 </style>
