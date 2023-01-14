@@ -44,7 +44,6 @@ client.connect().then(cur => {cursor = cur; on_mongo_connect()})
 
 async function on_mongo_connect() {
     console.log("mongodb is connected")
-    new oop.Event().import({id:1, name:"CityHeroes"}).update(cursor)
     console.log(await new oop.Event().from_db(cursor, 1))
 }
 
