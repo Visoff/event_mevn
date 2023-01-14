@@ -1,6 +1,6 @@
 <template>
     <div class="frameFrather">
-        <news v-if="activeFrame == 0" />
+        <calendar v-if="activeFrame == 0" />
         <chats v-if="activeFrame == 1" />
         <news v-if="activeFrame == 2" />
         <schedule v-if="activeFrame == 3" />
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import news from "./news.vue"
+import calendar from "./calendar.vue"
 import chats from "./chats.vue"
 import schedule from "./schedule.vue"
 import profile from "./profile.vue"
@@ -17,7 +17,7 @@ import profile from "./profile.vue"
 export default {
     props:["activeFrame"],
     components:{
-        news,
+        calendar,
         chats,
         schedule,
         profile
