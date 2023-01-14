@@ -3,15 +3,20 @@
         <div class="calendar_parent">
             <calendar />
         </div>
+        <div class="day_schedule_parent">
+            <day_schedule />
+        </div>
     </div>
 </template>
 
 <script>
 import calendar from './calendar.vue';
+import day_schedule from './day_schedule.vue';
 
 export default {
     components:{
-        calendar
+        calendar,
+        day_schedule
     },
     name:"schedule-page"
 }
