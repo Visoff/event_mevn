@@ -44,7 +44,11 @@ client.connect().then(cur => {cursor = cur; on_mongo_connect()})
 
 async function on_mongo_connect() {
     console.log("mongodb is connected")
-    console.log(await new oop.Team().from_db(cursor, 1))
+    var event = await new oop.Event().from_db(cursor, 1)
+    if (!event.registration.check_person(1)) {
+        event.registration.register_person(1)
+    }
+    console.log(event)
 }
 
 const fs = require("fs")
