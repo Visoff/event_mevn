@@ -29,6 +29,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 
 .calendar_parent, .day_schedule_parent {
@@ -50,6 +51,5 @@ div.day_schedule_parent {
     max-height: calc(100% - 100vw - 2.4rem);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    overflow-y: scroll;
 }
 </style>
