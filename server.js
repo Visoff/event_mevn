@@ -44,6 +44,7 @@ client.connect().then(cur => {cursor = cur; on_mongo_connect()})
 
 async function on_mongo_connect() {
     console.log("mongodb is connected")
+    cursor.db("CityHeroes").collection("teams").insertOne({id:1, name:"Организаторы"})
     console.log(await new oop.Event().from_db(cursor, 1))
 }
 
@@ -58,7 +59,6 @@ const Vue_path = __dirname+"/dist/"
 app.use(express.static(Vue_path))
 
 app.get("/", function(req, res) {
-    console.log(123)
     //res.send("send me money please!!!!!")
     res.sendFile(Vue_path+"index.html")
 })
