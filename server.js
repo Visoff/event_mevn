@@ -45,6 +45,7 @@ client.connect().then(cur => {cursor = cur; on_mongo_connect()})
 async function on_mongo_connect() {
     console.log("mongodb is connected")
     var event = await new oop.Event().from_db(cursor, 1)
+    console.log(event.registration.check_person(cursor, 1))
     if (event.registration.check_person(cursor, 1) == null) {
         event.registration.register_person(cursor, 1)
     }
