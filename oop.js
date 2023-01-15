@@ -89,6 +89,36 @@ class Team{
         this.id
         this.name
     }
+
+    async from_db(cursor, id) {
+        this.import(await cursor.db("CityHeroes").collection("teams").findOne({id}))
+        return this
+    }
+    
+    import(obj) {
+        this.id = obj.id != undefined ? obj.id : 0
+        this.name = obj.name != undefined ? obj.name : ""
+        return this
+    }
+
+    update(cursor) {
+        (async cursor => {
+            var col = await cursor.db("CityHeroes").collection("teams")
+            var old = await col.findOne({"id":this.id})
+            var update = {}
+            if (old.name != this.name) {update.name = this.name}
+            return await col.updateOne({"id":this.id}, {"$set":update})
+        })(cursor)
+    }
+
+    registartion={
+        async check_person(cursor, person_id) {
+            return await cursor.db("CityHeroes").collection("team_mates").findOne({team_id:this.id, person_id})
+        },
+        async register_person(cursor, person_id) {
+            return await cursor.db("CityHeroes").collection("team_mates").insertOne({team_id:this.id, person_id})
+        },
+    }
 }
 
 module.exports = {
