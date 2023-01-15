@@ -44,8 +44,7 @@ client.connect().then(cur => {cursor = cur; on_mongo_connect()})
 
 async function on_mongo_connect() {
     console.log("mongodb is connected")
-    cursor.db("CityHeroes").collection("teams").insertOne({id:1, name:"Организаторы"})
-    console.log(await new oop.Event().from_db(cursor, 1))
+    console.log(await new oop.Team().from_db(cursor, 1))
 }
 
 const fs = require("fs")
