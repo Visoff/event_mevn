@@ -75,13 +75,14 @@ app.post("/api/db/", function(req, res) {
     //cursor.db("CityHeroes").collection("users").find().toArray().then(r => {res.send(r)})
 })
 
-app.post("/api/db/select/user/byId", function(req, res) {
+app.post("/api/db/select/user/byId", async function(req, res) {
     var body = req.body
     if (body.id == undefined) {
         res.send("Please send id")
         return
     }
-    new oop.User().from_db(cursor, body.id).then(el => {res.send(el.export())})
+    var user = await new oop.User().from_db(cursor, body.id)//.export()
+    res.send(user)
 })
 
 
