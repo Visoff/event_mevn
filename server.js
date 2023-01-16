@@ -81,7 +81,7 @@ app.post("/api/db/select/user/byId", function(req, res) {
         res.send("Please send id")
         return
     }
-    var user = new oop.User().from_db(cursor, body.id)
+    var user = new oop.User().from_db(cursor, body.id).export()
     res.send(user)
 })
 

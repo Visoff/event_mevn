@@ -23,6 +23,17 @@ class User {
         return this
     }
 
+    export() {
+        return {
+            id:this.id,
+            name:this.name,
+            nickname:this.nickname,
+            password:this.password,
+            details:this.details,
+            friends:this.friends
+        }
+    }
+
     update(cursor) {
         (async cursor => {
             var col = await cursor.db("CityHeroes").collection("users")
@@ -55,6 +66,14 @@ class Event{
         this.name = obj.name != undefined ? obj.name : ""
         this.date = obj.date != undefined ? obj.date : new Date()
         return this
+    }
+
+    export() {
+        return {
+            id:this.id,
+            name:this.name,
+            date:this.date,
+        }
     }
 
     update(cursor) {
@@ -99,6 +118,13 @@ class Team{
         this.id = obj.id != undefined ? obj.id : 0
         this.name = obj.name != undefined ? obj.name : ""
         return this
+    }
+
+    export() {
+        return {
+            id:this.id,
+            name:this.name
+        }
     }
 
     update(cursor) {
