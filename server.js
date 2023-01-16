@@ -61,12 +61,15 @@ app.get("/", function(req, res) {
     res.sendFile(Vue_path+"index.html")
 })
 
+app.use(express.json())
+
 app.get("/api/", function(req, res) {
-    res.send("123")
+    res.send("Made by Visoff(ilya). If you find any bugs please contact me")
 })
 
-app.get("/api/db/select/user/", function(req, res) {
-    cursor.db("CityHeroes").collection("users").find().toArray().then(r => {res.send(r)})
+app.post("/api/db/", function(req, res) {
+    console.log(req.body)
+    //cursor.db("CityHeroes").collection("users").find().toArray().then(r => {res.send(r)})
 })
 
 const https_server = https.createServer(ssl_cert, app)
