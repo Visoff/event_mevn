@@ -1,6 +1,4 @@
 setup = (app) => {
-    app.use(express.json())
-
     app.get("/api/", function(req, res) {
         res.send("Made by Visoff(ilya). If you find any bugs please contact me")
     })

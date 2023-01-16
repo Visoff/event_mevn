@@ -62,6 +62,8 @@ app.get("/", function(req, res) {
     res.sendFile(Vue_path+"index.html")
 })
 
+app.use(express.json())
+
 api.setup(app)
 
 const https_server = https.createServer(ssl_cert, app)
