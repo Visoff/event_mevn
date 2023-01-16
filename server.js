@@ -93,7 +93,7 @@ app.post("/api/db/update/user/addTo/event", async function(req, res) {
     }
     var event = await new oop.Event().from_db(cursor, body.event)
     console.log(event)
-    if (a = event.registration.check_person(cursor, body.user)) {
+    if (a = await event.registration.check_person(cursor, body.user)) {
         res.send(event)
     } else {
         await event.registration.register_person(cursor, body.user)
