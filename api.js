@@ -1,4 +1,4 @@
-function setup(app) {
+setup = (app) => {
     app.use(express.json())
 
     app.get("/api/", function(req, res) {
