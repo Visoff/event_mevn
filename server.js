@@ -81,8 +81,23 @@ app.post("/api/db/select/user/byId", async function(req, res) {
         res.send("Please send id")
         return
     }
-    var user = await new oop.User().from_db(cursor, body.id)//.export()
+    var user = await new oop.User().from_db(cursor, body.id)
     res.send(user)
+})
+
+app.post("/api/db/update/user/addTo/event", async function(req, res) {
+    var body = req.body
+    if (body.user == undefined || body.event == undefined) {
+        res.send("Please send id")
+        return
+    }
+    var event = await new oop.Event().from_db(cursor, body.event)
+    if (event.registration.check_person(cursor, body.user)) {
+        res.send(event)
+    } else {
+        await event.registration.register_person(cursor, body.user)
+        res.send(event)
+    }
 })
 
 
