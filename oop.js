@@ -70,13 +70,13 @@ class Event{
 
     static registration={
         async check_person(cursor, event, person_id) {
-            return await cursor.db("CityHeroes").collection("event_registrations").findOne({event_id:event.id, person_id})
+            return await cursor.db("CityHeroes").collection("event_registration").findOne({event_id:event.id, person_id})
         },
         async register_person(cursor, event, person_id) {
             return await cursor.db("CityHeroes").collection("event_registration").insertOne({event_id:event.id, person_id})
         },
         async check_team(cursor, event, team_id) {
-            return await cursor.db("CityHeroes").collection("event_registrations").findOne({event_id:event.id, team_id})
+            return await cursor.db("CityHeroes").collection("event_registration").findOne({event_id:event.id, team_id})
         },
         async register_team(cursor, event, team_id) {
             return await cursor.db("CityHeroes").collection("event_registration").insertOne({event_id:event.id, team_id})
