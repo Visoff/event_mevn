@@ -2,6 +2,7 @@ const oop = require("./oop.js")
 
 const express = require("express")
 const app = express()
+const api = require("./api.js")
 const cors = require("cors")
 app.use(cors())
 
@@ -61,17 +62,7 @@ app.get("/", function(req, res) {
     res.sendFile(Vue_path+"index.html")
 })
 
-app.use(express.json())
-
-app.get("/api/", function(req, res) {
-    res.send("Made by Visoff(ilya). If you find any bugs please contact me")
-})
-
-app.post("/api/db/", function(req, res) {
-    console.log(req.body)
-    res.send(req.body)
-    //cursor.db("CityHeroes").collection("users").find().toArray().then(r => {res.send(r)})
-})
+api.setup(app)
 
 const https_server = https.createServer(ssl_cert, app)
 const http_server = http.createServer(app)
