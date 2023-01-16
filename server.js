@@ -69,6 +69,7 @@ app.get("/api/", function(req, res) {
 
 app.post("/api/db/", function(req, res) {
     console.log(req.body)
+    res.send(req.body)
     //cursor.db("CityHeroes").collection("users").find().toArray().then(r => {res.send(r)})
 })
 
