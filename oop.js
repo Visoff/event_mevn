@@ -111,12 +111,12 @@ class Team{
         })(cursor)
     }
 
-    registartion={
-        async check_person(cursor, person_id) {
-            return await global.CityHeroes_db.collection("team_mates").findOne({team_id:this.id, person_id})
+    static registartion={
+        async check_person(cursor, team, person_id) {
+            return await global.CityHeroes_db.collection("team_mates").findOne({team_id:team.id, person_id})
         },
-        async register_person(cursor, person_id) {
-            return await global.CityHeroes_db.collection("team_mates").insertOne({team_id:this.id, person_id})
+        async register_person(cursor, team, person_id) {
+            return await global.CityHeroes_db.collection("team_mates").insertOne({team_id:team.id, person_id})
         },
     }
 }
