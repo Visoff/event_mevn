@@ -169,7 +169,7 @@ class Schedule{
         async ByDate(date) {
             var time = date.getTime()
             console.log(time)
-            return await global.CityHeroes_db.collection("event_schedule").find({/*start:{$gte:time}, end:{$lte:time}*/}).toArray()
+            return await global.CityHeroes_db.collection("event_schedule").find({start:{$gte:time}, end:{$lte:time}}).toArray()
         }
     }
 
