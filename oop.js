@@ -33,7 +33,12 @@ class User {
 
     static find={
         async teams(id) {
-            return await global.CityHeroes_db.collection("team_mates").find({"person_id":id}).toArray()
+            var teams = await global.CityHeroes_db.collection("team_mates").find({"person_id":id}).toArray()
+            var team_ids = []
+            teams.forEach(el => {
+                team_ids.push(el["person_id"])
+            });
+            return await global.CityHeroes_db.collection("teams").find({"id":{$in: team_ids}})
         }
     }
 }
