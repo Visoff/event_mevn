@@ -145,6 +145,26 @@ class Schedule{
         }
     }
 
+    import(obj) {
+        this.event_id = obj.event_id != undefined ? obj.event_id : this.event_id
+        this.date = obj.date != undefined ? (typeof obj.date == "string" ? obj.date : obj.date.toDateString()) : this.date
+        this.name = obj.name != undefined ? obj.name : this.name
+        this.timestamp = obj.timestamp != undefined ? {
+            start:obj.timestamp.start != undefined ? (typeof obj.timestamp.start == "string" ? obj.timestamp.start : obj.timestamp.start.toTimeString()) : this.timestamp.start,
+            end:obj.timestamp.end != undefined ? (typeof obj.timestamp.end == "string" ? obj.timestamp.end : obj.timestamp.end.toTimeString()) : this.timestamp.end
+        } : this.timestamp
+        return this
+    }
+
+    export() {
+        return {
+            event_id:this.event_id,
+            date:this.date,
+            name:this.name,
+            timestamp:this.timestamp
+        }
+    }
+
     static find={
         async ByEventId(event_id) {
             return await global.CityHeroes_db.collection("event_schedule").find({event_id}).toArray()
@@ -154,10 +174,8 @@ class Schedule{
         }
     }
 
-    static add={
-        async toEvent(event_id) {
-            
-        }
+    async pushToDb() {
+        return await global.CityHeroes_db.collection("event_schedule").insertOne(this.export())
     }
 }
 

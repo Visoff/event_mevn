@@ -43,6 +43,8 @@ var cursor = undefined
 client.connect().then(cur => {cursor = cur; global.CityHeroes_db = cur.db("CityHeroes"); on_mongo_connect()})
 
 async function on_mongo_connect() {
+    var res = new oop.Schedule().import({event_id:1, date:new Date(), name:"Открытие", timestamp:{start:new Date().setHours(10), end:new Date().setHours(11)}})
+    console.log(res)
     console.log("mongodb is connected")
 }
 
