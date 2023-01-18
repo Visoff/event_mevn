@@ -40,7 +40,7 @@ const MongoClient = require("mongodb").MongoClient
 var client = new MongoClient("mongodb://127.0.0.1:27017")
 
 var cursor = undefined
-client.connect().then(cur => {cursor = cur; window.CityHeroes_db = cur.db("CityHeroes"); on_mongo_connect()})
+client.connect().then(cur => {cursor = cur; global.CityHeroes_db = cur.db("CityHeroes"); on_mongo_connect()})
 
 async function on_mongo_connect() {
     console.log("mongodb is connected")
