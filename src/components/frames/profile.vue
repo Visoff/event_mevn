@@ -2,7 +2,7 @@
     <div class="profile-page">
         <div class="upper">
             <icon></icon>
-            <div class="name">{{ user.name }}</div>
+            <div class="name">{{ user["name"] }}</div>
         </div>
         <div class="details">
             По образованию: лох
@@ -25,8 +25,8 @@ export default {
     data() {
         return {
             user:{
-                icon:undefined,
-                name:"Викештий"
+                "icon":undefined,
+                "name":"Викештий"
             }
         }
     },
