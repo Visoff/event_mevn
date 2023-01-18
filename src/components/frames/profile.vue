@@ -31,9 +31,8 @@ export default {
         }
     },
     mounted() {
-        axios.get("https://visoff.ru/api/db/select/user/").then(response => {
-            //this.user = response.data[0]
-            console.log(response.data)
+        axios.post("https://visoff.ru/api/db/user/getBy/", {"id":1}).then(response => {
+            this.user = response
         })
     }
 }
