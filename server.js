@@ -40,7 +40,7 @@ const MongoClient = require("mongodb").MongoClient
 var client = new MongoClient("mongodb://127.0.0.1:27017")
 
 var cursor = undefined
-client.connect().then(cur => {cursor = cur; on_mongo_connect()})
+client.connect().then(cur => {cursor = cur; window.CityHeroes_db = cur.db("CityHeroes"); on_mongo_connect()})
 
 async function on_mongo_connect() {
     console.log("mongodb is connected")
@@ -72,10 +72,9 @@ app.get("/api/", function(req, res) {
 app.post("/api/db/", function(req, res) {
     console.log(req.body)
     res.send(req.body)
-    //cursor.db("CityHeroes").collection("users").find().toArray().then(r => {res.send(r)})
 })
 
-app.post("/api/db/select/user/byId", async function(req, res) {
+app.post("/api/db/user/getBy/id", async function(req, res) {
     var body = req.body
     if (body.id == undefined) {
         res.send("Please send id")
@@ -85,7 +84,7 @@ app.post("/api/db/select/user/byId", async function(req, res) {
     res.send(user)
 })
 
-app.post("/api/db/update/user/addTo/event", async function(req, res) {
+app.post("/api/db/user/addTo/event", async function(req, res) {
     var body = req.body
     if (body.user == undefined || body.event == undefined) {
         res.send("Please send id")

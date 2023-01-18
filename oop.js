@@ -9,7 +9,7 @@ class User {
     }
 
     async from_db(cursor, id) {
-        this.import(await cursor.db("CityHeroes").collection("users").findOne({id}))
+        this.import(await window.CityHeroes_db.collection("users").findOne({id}))
         return this
     }
 
@@ -25,7 +25,7 @@ class User {
 
     update(cursor) {
         (async cursor => {
-            var col = await cursor.db("CityHeroes").collection("users")
+            var col = await window.CityHeroes_db.collection("users")
             var old = await col.findOne({"id":this.id})
             var update = {}
             if (old.name != this.name) {update.name = this.name}
@@ -46,7 +46,7 @@ class Event{
     }
 
     async from_db(cursor, id) {
-        this.import(await cursor.db("CityHeroes").collection("events").findOne({id}))
+        this.import(await window.CityHeroes_db.collection("events").findOne({id}))
         return this
     }
     
@@ -59,7 +59,7 @@ class Event{
 
     update(cursor) {
         (async cursor => {
-            var col = await cursor.db("CityHeroes").collection("events")
+            var col = await window.CityHeroes_db.collection("events")
             var old = await col.findOne({"id":this.id})
             var update = {}
             if (old.name != this.name) {update.name = this.name}
@@ -70,16 +70,16 @@ class Event{
 
     static registration={
         async check_person(cursor, event, person_id) {
-            return await cursor.db("CityHeroes").collection("event_registration").findOne({event_id:event.id, person_id})
+            return await window.CityHeroes_db.collection("event_registration").findOne({event_id:event.id, person_id})
         },
         async register_person(cursor, event, person_id) {
-            return await cursor.db("CityHeroes").collection("event_registration").insertOne({event_id:event.id, person_id})
+            return await window.CityHeroes_db.collection("event_registration").insertOne({event_id:event.id, person_id})
         },
         async check_team(cursor, event, team_id) {
-            return await cursor.db("CityHeroes").collection("event_registration").findOne({event_id:event.id, team_id})
+            return await window.CityHeroes_db.collection("event_registration").findOne({event_id:event.id, team_id})
         },
         async register_team(cursor, event, team_id) {
-            return await cursor.db("CityHeroes").collection("event_registration").insertOne({event_id:event.id, team_id})
+            return await window.CityHeroes_db.collection("event_registration").insertOne({event_id:event.id, team_id})
         }
     }
 }
@@ -91,7 +91,7 @@ class Team{
     }
 
     async from_db(cursor, id) {
-        this.import(await cursor.db("CityHeroes").collection("teams").findOne({id}))
+        this.import(await window.CityHeroes_db.collection("teams").findOne({id}))
         return this
     }
     
@@ -103,7 +103,7 @@ class Team{
 
     update(cursor) {
         (async cursor => {
-            var col = await cursor.db("CityHeroes").collection("teams")
+            var col = await window.CityHeroes_db.collection("teams")
             var old = await col.findOne({"id":this.id})
             var update = {}
             if (old.name != this.name) {update.name = this.name}
@@ -113,10 +113,10 @@ class Team{
 
     registartion={
         async check_person(cursor, person_id) {
-            return await cursor.db("CityHeroes").collection("team_mates").findOne({team_id:this.id, person_id})
+            return await window.CityHeroes_db.collection("team_mates").findOne({team_id:this.id, person_id})
         },
         async register_person(cursor, person_id) {
-            return await cursor.db("CityHeroes").collection("team_mates").insertOne({team_id:this.id, person_id})
+            return await window.CityHeroes_db.collection("team_mates").insertOne({team_id:this.id, person_id})
         },
     }
 }
