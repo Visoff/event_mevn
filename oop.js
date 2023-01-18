@@ -138,6 +138,7 @@ class Schedule{
     constructor() {
         this.event_id = 0
         this.name = ""
+        this.date = new Date().toDateString()
         this.timestamp = {
             start:new Date().getTime(),
             end:new Date().getTime()
@@ -147,6 +148,7 @@ class Schedule{
     import(obj) {
         this.event_id = obj.event_id != undefined ? obj.event_id : this.event_id
         this.name = obj.name != undefined ? obj.name : this.name
+        this.date = obj.date != undefined ? (typeof obj.date == "string" ? obj.date : obj.date.toDateString()) : this.date
         this.timestamp = obj.timestamp != undefined ? {
             start:obj.timestamp.start != undefined ? (typeof obj.timestamp.start == "int" ? obj.timestamp.start : obj.timestamp.start.getTime()) : this.timestamp.start,
             end:obj.timestamp.end != undefined ? (typeof obj.timestamp.end == "int" ? obj.timestamp.end : obj.timestamp.end.getTime()) : this.timestamp.end
@@ -158,6 +160,7 @@ class Schedule{
         return {
             event_id:this.event_id,
             name:this.name,
+            date:this.date,
             timestamp:this.timestamp
         }
     }
@@ -166,10 +169,12 @@ class Schedule{
         async ByEventId(event_id) {
             return await global.CityHeroes_db.collection("event_schedule").find({event_id}).toArray()
         },
-        async ByDate(date) {
+        async ByDateTime(date) {
             var time = date.getTime()
-            console.log(time)
             return await global.CityHeroes_db.collection("event_schedule").find({$and:[{"timestamp.start":{$lte:time}}, {"timestamp.end":{$gte:time}}]}).toArray()
+        },
+        async ByDate(date) {
+            return await global.CityHeroes_db.collection("event_schedule").find({date:date.toDateString()}).toArray()
         }
     }
 
