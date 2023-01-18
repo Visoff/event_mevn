@@ -101,6 +101,22 @@ app.post("/api/db/user/addTo/event", async function(req, res) {
 })
 
 
+app.post("/api/db/user/addTo/team", async function(req, res) {
+    var body = req.body
+    if (body.user == undefined || body.team == undefined) {
+        res.send("Please send id")
+        return
+    }
+    var team = await new oop.Team().from_db(cursor, body.team)
+    if (!!(a = await oop.Team.registration.check_person(cursor, team, body.user))) {
+        res.send("user was already in this team")
+    } else {
+        await oop.Team.registration.register_person(cursor, team, body.user)
+        res.send(team)
+    }
+    console.log(a)
+})
+
 
 const https_server = https.createServer(ssl_cert, app)
 const http_server = http.createServer(app)
