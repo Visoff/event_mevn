@@ -44,7 +44,7 @@ client.connect().then(cur => {cursor = cur; global.CityHeroes_db = cur.db("CityH
 
 async function on_mongo_connect() {
     var res = oop.Schedule().find.ByEventId(1)
-    console.log(res)
+    console.log(JSON.stringify(res))
     console.log("mongodb is connected")
 }
 
