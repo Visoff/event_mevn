@@ -38,10 +38,7 @@ class User {
             teams.forEach(el => {
                 team_ids.push(el["person_id"])
             });
-            console.log(team_ids)
-            var res = await global.CityHeroes_db.collection("teams").find({"id":{$in: team_ids}})
-            console.log(res)
-            return res
+            return await global.CityHeroes_db.collection("teams").find({"id":{$in: team_ids}}).toArray()
         }
     }
 }
