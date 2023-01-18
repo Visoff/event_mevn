@@ -53,7 +53,7 @@ async function on_mongo_connect() {
     timestamp.end.setMinutes(0)
     var res = new oop.Schedule().import({event_id:1, date:new Date(), name:"Открытие", timestamp})
     res.pushToDb()*/
-    var res = oop.Schedule.find.ByEventId(1)
+    var res = await oop.Schedule.find.ByEventId(1)
     console.log(res)
     console.log("mongodb is connected")
 }
