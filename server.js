@@ -55,10 +55,10 @@ async function on_mongo_connect() {
     res.pushToDb()*/
 
     var date = new Date()
-    date.setHours(10)
+    date.setHours(11)
     var res = await oop.Schedule.find.ByDate(date)
     console.log(res)
-    
+
     console.log("mongodb is connected")
 }
 
