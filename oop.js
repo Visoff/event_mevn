@@ -174,7 +174,7 @@ class Schedule{
             return await global.CityHeroes_db.collection("event_schedule").find({$and:[{"timestamp.start":{$lte:time}}, {"timestamp.end":{$gte:time}}]}).toArray()
         },
         async ByDate(date) {
-            return await global.CityHeroes_db.collection("event_schedule").find({date:date.toDateString()}).toArray()
+            return await global.CityHeroes_db.collection("event_schedule").find({"date":date.toDateString()}).toArray()
         }
     }
 

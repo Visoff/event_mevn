@@ -67,4 +67,10 @@ returns array of schedule elements by event id
 ```
 ByDate(date: Date): Schedule[]
 ```
-returns array of schedule elements by date
+returns array of schedule elements by date(time doesn't matter)
+
+#### **ByDateTime**
+```
+ByDateTime(date: Date): Schedule[]
+```
+returns array of schedule elements by date(time matters)
