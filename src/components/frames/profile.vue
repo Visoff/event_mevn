@@ -32,7 +32,7 @@ export default {
     },
     mounted() {
         axios.post("https://visoff.ru/api/db/user/getBy/id", JSON.stringify({"id":1}), {headers:{"Content-Type":"application/json"}}).then(response => {
-            this.user = response
+            this.user = JSON.parse(response)
         })
     }
 }
