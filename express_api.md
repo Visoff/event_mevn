@@ -9,22 +9,26 @@ all requests are json post requests
 .../db/
 ***
 ## user
-**select**
+### getBy
 
-***
-byId
-***
+**id**
 returns user object by id provided
 
-***
-byEmailPass
-***
+**emailPass**
 returns user object by email and password provided
 
-**update**
+### addTo
 
-***
-addTo/(event\team)
-***
-adds user(by id) to event or team(by respective variables set to id)
+**event**
+adds user(by id) to event
 
+**team**
+adds user(by id) to team
+
+### get
+
+**teams**
+sends list of teams this users is in
+
+**events**
+sends list of events this users is in

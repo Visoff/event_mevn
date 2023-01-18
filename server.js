@@ -80,7 +80,7 @@ app.post("/api/db/user/getBy/id", async function(req, res) {
         res.send("Please send id")
         return
     }
-    var user = await new oop.User().from_db(cursor, body.id)
+    var user = await new oop.User().from_db(body.id)
     res.send(user)
 })
 
@@ -90,14 +90,13 @@ app.post("/api/db/user/addTo/event", async function(req, res) {
         res.send("Please send id")
         return
     }
-    var event = await new oop.Event().from_db(cursor, body.event)
-    if (!!(a = await oop.Event.registration.check_person(cursor, event, body.user))) {
+    var event = await new oop.Event().from_db(body.event)
+    if (!!(a = await oop.Event.registration.check_person(event, body.user))) {
         res.send("user was already in this event")
     } else {
-        await oop.Event.registration.register_person(cursor, event, body.user)
+        await oop.Event.registration.register_person(event, body.user)
         res.send(event)
     }
-    console.log(a)
 })
 
 
@@ -107,14 +106,27 @@ app.post("/api/db/user/addTo/team", async function(req, res) {
         res.send("Please send id")
         return
     }
-    var team = await new oop.Team().from_db(cursor, body.team)
-    if (!!(a = await oop.Team.registration.check_person(cursor, team, body.user))) {
+    var team = await new oop.Team().from_db(body.team)
+    if (!!(a = await oop.Team.registration.check_person(team, body.user))) {
         res.send("user was already in this team")
     } else {
-        await oop.Team.registration.register_person(cursor, team, body.user)
+        await oop.Team.registration.register_person(team, body.user)
         res.send(team)
     }
-    console.log(a)
+})
+
+app.post("/api/db/user/get/teams", async function(req, res) {
+    var body = req.body
+    if (body.id == undefined) {
+        res.send("Please send id")
+        return
+    }
+    var teams = await oop.User.find.teams(body.id)
+    if (teams.length == 0) {
+        res.send("user has no teams")
+    } else {
+        res.send(teams)
+    }
 })
 
 
