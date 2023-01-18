@@ -51,6 +51,43 @@ class User {
     }
 }
 
+class Team{
+    constructor() {
+        this.id
+        this.name
+    }
+
+    async from_db(id) {
+        this.import(await global.CityHeroes_db.collection("teams").findOne({id}))
+        return this
+    }
+    
+    import(obj) {
+        this.id = obj.id != undefined ? obj.id : 0
+        this.name = obj.name != undefined ? obj.name : ""
+        return this
+    }
+
+    update() {
+        (async () => {
+            var col = await global.CityHeroes_db.collection("teams")
+            var old = await col.findOne({"id":this.id})
+            var update = {}
+            if (old.name != this.name) {update.name = this.name}
+            return await col.updateOne({"id":this.id}, {"$set":update})
+        })()
+    }
+
+    static registration={
+        async check_person(team, person_id) {
+            return await global.CityHeroes_db.collection("team_mates").findOne({team_id:team.id, person_id})
+        },
+        async register_person(team, person_id) {
+            return await global.CityHeroes_db.collection("team_mates").insertOne({team_id:team.id, person_id})
+        },
+    }
+}
+
 class Event{
     constructor() {
         this.id = 0
@@ -97,45 +134,30 @@ class Event{
     }
 }
 
-class Team{
+class Schedule{
     constructor() {
-        this.id
-        this.name
+        this.event_id = 0
+        this.date = new Date().toDateString()
+        this.name = ""
+        this.timestamp = {
+            start:new Date().toTimeString(),
+            end:new Date().toTimeString()
+        }
     }
 
-    async from_db(id) {
-        this.import(await global.CityHeroes_db.collection("teams").findOne({id}))
-        return this
-    }
-    
-    import(obj) {
-        this.id = obj.id != undefined ? obj.id : 0
-        this.name = obj.name != undefined ? obj.name : ""
-        return this
-    }
-
-    update() {
-        (async () => {
-            var col = await global.CityHeroes_db.collection("teams")
-            var old = await col.findOne({"id":this.id})
-            var update = {}
-            if (old.name != this.name) {update.name = this.name}
-            return await col.updateOne({"id":this.id}, {"$set":update})
-        })()
-    }
-
-    static registration={
-        async check_person(team, person_id) {
-            return await global.CityHeroes_db.collection("team_mates").findOne({team_id:team.id, person_id})
+    static find={
+        async ByEventId(event_id) {
+            return await global.CityHeroes_db.collection("event_schedule").find({event_id}).toArray()
         },
-        async register_person(team, person_id) {
-            return await global.CityHeroes_db.collection("team_mates").insertOne({team_id:team.id, person_id})
-        },
+        async ByDate(date) {
+            return await global.CityHeroes_db.collection("event_schedule").find({date:date.toDateString()}).toArray()
+        }
     }
 }
 
 module.exports = {
     User,
     Event,
-    Team
+    Team,
+    Schedule
 }
