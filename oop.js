@@ -39,6 +39,14 @@ class User {
                 team_ids.push(el["person_id"])
             });
             return await global.CityHeroes_db.collection("teams").find({"id":{$in: team_ids}}).toArray()
+        },
+        async events(id) {
+            var events = await global.CityHeroes_db.collection("event_registration").find({"person_id":id}).toArray()
+            var event_ids = []
+            events.forEach(el => {
+                event_ids.push(el["person_id"])
+            });
+            return await global.CityHeroes_db.collection("events").find({"id":{$in: event_ids}}).toArray()
         }
     }
 }

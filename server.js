@@ -129,6 +129,19 @@ app.post("/api/db/user/get/teams", async function(req, res) {
     }
 })
 
+app.post("/api/db/user/get/events", async function(req, res) {
+    var body = req.body
+    if (body.id == undefined) {
+        res.send("Please send id")
+        return
+    }
+    var events = await oop.User.find.events(body.id)
+    if (events.length == 0) {
+        res.send("user has no events")
+    } else {
+        res.send(events)
+    }
+})
 
 const https_server = https.createServer(ssl_cert, app)
 const http_server = http.createServer(app)
