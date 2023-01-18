@@ -111,7 +111,7 @@ class Team{
         })(cursor)
     }
 
-    static registartion={
+    static registration={
         async check_person(cursor, team, person_id) {
             return await global.CityHeroes_db.collection("team_mates").findOne({team_id:team.id, person_id})
         },
