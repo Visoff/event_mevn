@@ -137,21 +137,19 @@ class Event{
 class Schedule{
     constructor() {
         this.event_id = 0
-        this.date = new Date().toDateString()
         this.name = ""
         this.timestamp = {
-            start:new Date().toTimeString(),
-            end:new Date().toTimeString()
+            start:new Date().getTime(),
+            end:new Date().getTime()
         }
     }
 
     import(obj) {
         this.event_id = obj.event_id != undefined ? obj.event_id : this.event_id
-        this.date = obj.date != undefined ? (typeof obj.date == "string" ? obj.date : obj.date.toDateString()) : this.date
         this.name = obj.name != undefined ? obj.name : this.name
         this.timestamp = obj.timestamp != undefined ? {
-            start:obj.timestamp.start != undefined ? (typeof obj.timestamp.start == "string" ? obj.timestamp.start : obj.timestamp.start.toTimeString()) : this.timestamp.start,
-            end:obj.timestamp.end != undefined ? (typeof obj.timestamp.end == "string" ? obj.timestamp.end : obj.timestamp.end.toTimeString()) : this.timestamp.end
+            start:obj.timestamp.start != undefined ? (typeof obj.timestamp.start == "int" ? obj.timestamp.start : obj.timestamp.start.getTime()) : this.timestamp.start,
+            end:obj.timestamp.end != undefined ? (typeof obj.timestamp.end == "int" ? obj.timestamp.end : obj.timestamp.end.getTime()) : this.timestamp.end
         } : this.timestamp
         return this
     }
@@ -159,7 +157,6 @@ class Schedule{
     export() {
         return {
             event_id:this.event_id,
-            date:this.date,
             name:this.name,
             timestamp:this.timestamp
         }
@@ -170,7 +167,7 @@ class Schedule{
             return await global.CityHeroes_db.collection("event_schedule").find({event_id}).toArray()
         },
         async ByDate(date) {
-            return await global.CityHeroes_db.collection("event_schedule").find({date:date.toDateString()}).toArray()
+            //Later -> return await global.CityHeroes_db.collection("event_schedule").find({date:date.toDateString()}).toArray()
         }
     }
 
