@@ -151,7 +151,7 @@ app.post("/api/db/schedule/get/ByEventId", async function(req, res) {
     }
     var schedule = await oop.Schedule.find.ByEventId(body.id)
     if (schedule.length == 0) {
-        res.send("user has no events")
+        res.send("event has no schedule")
     } else {
         res.send(schedule)
     }

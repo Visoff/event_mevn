@@ -153,6 +153,12 @@ class Schedule{
             return await global.CityHeroes_db.collection("event_schedule").find({date:date.toDateString()}).toArray()
         }
     }
+
+    static add={
+        async toEvent(event_id) {
+            
+        }
+    }
 }
 
 module.exports = {
