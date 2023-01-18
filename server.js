@@ -43,7 +43,7 @@ var cursor = undefined
 client.connect().then(cur => {cursor = cur; global.CityHeroes_db = cur.db("CityHeroes"); on_mongo_connect()})
 
 async function on_mongo_connect() {
-    console.log(oop.Schedule.find.ByDate(new Date()))
+    console.log(await oop.Schedule.find.ByDate(new Date()))
     console.log("mongodb is connected")
 }
 
