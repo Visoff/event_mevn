@@ -43,7 +43,15 @@ var cursor = undefined
 client.connect().then(cur => {cursor = cur; global.CityHeroes_db = cur.db("CityHeroes"); on_mongo_connect()})
 
 async function on_mongo_connect() {
-    var res = new oop.Schedule().import({event_id:1, date:new Date(), name:"Открытие", timestamp:{start:new Date().setHours(10), end:new Date().setHours(11)}})
+    var timestamp = {
+        start:new Date(),
+        end:new Date()
+    }
+    timestamp.start.setHours(10)
+    timestamp.start.setMinutes(0)
+    timestamp.end.setHours(11)
+    timestamp.end.setMinutes(0)
+    var res = new oop.Schedule().import({event_id:1, date:new Date(), name:"Открытие", timestamp})
     console.log(res)
     console.log("mongodb is connected")
 }
@@ -51,6 +59,7 @@ async function on_mongo_connect() {
 const fs = require("fs")
 const https = require("https")
 const http = require("http")
+const { time } = require("console")
 const ssl_cert = {key: fs.readFileSync(__dirname+'/ssl/cert.key', 'utf8'), cert: fs.readFileSync(__dirname+'/ssl/cert.pem', 'utf8')}
 
 
