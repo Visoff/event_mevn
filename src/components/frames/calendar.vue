@@ -64,6 +64,12 @@ div.month_name {
     font-size: 1.25rem;
 }
 
+div.month_name > div:last-child {
+    display: flex;
+    flex-direction: row;
+    gap: .25rem;
+}
+
 div.calendar {
     height: 100%;
     width: 100%;
