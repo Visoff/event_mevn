@@ -41,6 +41,7 @@ div.news > div {
 }
 
 div.news > div::before {
+    content: "";
     position: absolute;
     bottom: -1.5rem;
     left: -1.5rem;
