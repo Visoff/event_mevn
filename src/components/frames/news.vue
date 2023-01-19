@@ -38,6 +38,7 @@ div.news > div {
     padding: 0.25rem;
     background-color: #ffffff40;
     padding-bottom: 1.75rem;
+    font-size: 1.25rem;
 }
 
 div.news > div::before {
