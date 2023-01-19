@@ -8,7 +8,7 @@ export default {
     name:"news-page",
     data() {
         return {
-            posts:["123"]
+            posts:["hello", "it is I"]
         }
     },
     mounted() {

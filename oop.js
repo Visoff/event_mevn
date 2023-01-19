@@ -49,6 +49,20 @@ class User {
             return await global.CityHeroes_db.collection("events").find({"id":{$in: event_ids}}).toArray()
         }
     }
+
+    static details={
+        get:{
+            async ByUser(user_id) {
+                return await global.CityHeroes_db.collection("user_details").find({user_id}).toArray()
+            },
+            async ByUserKey(user_id, key) {
+                return await global.CityHeroes_db.collection("user_details").find({user_id, key}).toArray()
+            }
+        },
+        async insert(user_id, key, value) {
+            return await global.CityHeroes_db.collection("user_details").insertOne({user_id, key, value})
+        }
+    }
 }
 
 class Team{
