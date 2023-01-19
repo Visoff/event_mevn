@@ -47,5 +47,7 @@ div.news > div::before {
     width: 3rem;
     aspect-ratio: 1;
     content: url("https://visoff.ru/assets/svg/CityHeroes_Icon.svg");
+    background-position: 0;
+    background-size: 100%;
 }
 </style>
