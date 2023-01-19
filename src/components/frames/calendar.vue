@@ -6,13 +6,13 @@
     </div>
     <div class="calendar">
         <div class="row">
-            <div class="el">Пн</div>
-            <div class="el">Вт</div>
-            <div class="el">Ср</div>
-            <div class="el">Чт</div>
-            <div class="el">Пт</div>
-            <div class="el hol">Сб</div>
-            <div class="el hol">Вс</div>
+            <div class="ele">Пн</div>
+            <div class="ele">Вт</div>
+            <div class="ele">Ср</div>
+            <div class="ele">Чт</div>
+            <div class="ele">Пт</div>
+            <div class="ele hol">Сб</div>
+            <div class="ele hol">Вс</div>
         </div>
         <div v-for="row in calendar" :key="row" class="row">
             <div v-for="el in row" :key="el" :class="(() => {var a = ''; if (el.current) {a+=' current'}; return 'el'+a})()">{{ el.date }}</div>
@@ -74,8 +74,8 @@ div.row {
     place-items: center;
 }
 
-div.el.hol {color: red;}
-div.el {
+div.ele.hol {color: red;}
+div.el, div.ele {
     display: grid;
     place-items: center;
 }
