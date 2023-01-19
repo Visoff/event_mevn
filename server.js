@@ -8,7 +8,7 @@ app.use(function (req, res, next) {
     next()
 })
 
-require("./web_socket.js")
+require("./web_socket.js").setup(app)
 
 const MongoClient = require("mongodb").MongoClient
 var client = new MongoClient("mongodb://127.0.0.1:27017")
