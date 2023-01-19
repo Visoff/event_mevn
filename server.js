@@ -3,36 +3,12 @@ const app = express()
 const cors = require("cors")
 app.use(cors())
 
-const WebSocket = require("ws")
-const wss = new WebSocket.Server({noServer:true})
-wss.on("connection", function(ws) {
-    ws.on("message", function (message) {
-        if (message.toString() == "keep alive") {ws.send(123); return;}
-        console.log(message.toString())
-        ws.send("123")
-    })
-})
-
 app.use(function (req, res, next) {
     req.head = { ...req.headers}
     next()
 })
 
-app.ws = function(path, handler) {
-  app.use(function(req, res, next) {
-      if (req.url === path && req.headers.upgrade === 'websocket') {
-      wss.handleUpgrade(req, req.socket, req.head, function done(ws) {
-        handler(ws, req);
-      });
-    } else {
-      next();
-    }
-  });
-};
-
-app.ws("/", function(ws, req) {
-    wss.emit("connection", ws, req)
-})
+require("./web_socket.js")
 
 const MongoClient = require("mongodb").MongoClient
 var client = new MongoClient("mongodb://127.0.0.1:27017")
