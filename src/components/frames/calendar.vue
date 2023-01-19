@@ -5,6 +5,15 @@
         <div class="next">/</div>
     </div>
     <div class="calendar">
+        <div class="row">
+            <div class="el">Пн</div>
+            <div class="el">Вт</div>
+            <div class="el">Ср</div>
+            <div class="el">Чт</div>
+            <div class="el">Пт</div>
+            <div class="el hol">Сб</div>
+            <div class="el hol">Вс</div>
+        </div>
         <div v-for="row in calendar" :key="row" class="row">
             <div v-for="el in row" :key="el" :class="(() => {var a = ''; if (el.current) {a+=' current'}; return 'el'+a})()">{{ el.date }}</div>
         </div>
@@ -65,12 +74,13 @@ div.row {
     place-items: center;
 }
 
+div.el.hol {color: red;}
 div.el {
     display: grid;
     place-items: center;
 }
 
 div.el:not(.current) {
-    color: #000000a0;
+    color: #BFBFBF;
 }
 </style>
