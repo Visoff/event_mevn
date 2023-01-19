@@ -6,7 +6,7 @@ function setup(app) {
     
     app.post("/api/db/", function(req, res) {
         console.log(req.body)
-        res.send({request:req.body, dude:123456})
+        res.send({request:req.body, dude:123})
     })
     
     app.post("/api/db/user/getBy/id", async function(req, res) {
