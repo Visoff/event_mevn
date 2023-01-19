@@ -23,7 +23,6 @@ async function on_mongo_connect() {
 const fs = require("fs")
 const https = require("https")
 const http = require("http")
-const { time } = require("console")
 const ssl_cert = {key: fs.readFileSync(__dirname+'/ssl/cert.key', 'utf8'), cert: fs.readFileSync(__dirname+'/ssl/cert.pem', 'utf8')}
 
 

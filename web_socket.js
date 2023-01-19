@@ -22,7 +22,7 @@ function setup(app) {
         console.log("websocket was connected")
         ws.on("message", function (message) {
             console.log(message.toString())
-            ws.send("123")
+            ws.send("server echo "+message.toString())
         })
     })
 }
