@@ -55,6 +55,7 @@ export default {
 
 <style>
 div.month_name {
+    padding: 0 .5rem;
     display: flex;
     flex-direction: row;
     width: 100%;
