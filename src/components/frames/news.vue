@@ -1,5 +1,7 @@
 <template>
-    <div v-for="post in posts" :key="post">{{ post }}</div>
+    <div class="news">
+        <div v-for="post in posts" :key="post">{{ post }}</div>
+    </div>
 </template>
 
 <script>
@@ -18,3 +20,7 @@ export default {
     }
 }
 </script>
+
+<style>
+
+</style>
