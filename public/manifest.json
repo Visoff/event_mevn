@@ -28,7 +28,7 @@
     "start_url":"https://visoff.ru",
     "icons":[
         {
-            "src":"https://visoff.ru/ecosystem/svg/CityHeroes_Icon.png",
+            "src":"https://visoff.ru/assets/svg/CityHeroes_Icon.png",
             "sizes":"512x512",
             "type":"image/png",
             "purpose":"any"
