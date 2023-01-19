@@ -1,8 +1,12 @@
 <template>
     <div class="month_name">
-        <div class="prev">\</div>
-        {{ new Date().toLocaleString("ru", {month:"long"}) }}
-        <div class="next">/</div>
+        <div>
+            {{ new Date().toLocaleString("ru", {month:"long"}) }}
+        </div>
+        <div>
+            <div class="prev">\</div>
+            <div class="next">/</div>
+        </div>
     </div>
     <div class="calendar">
         <div class="row">
@@ -54,7 +58,8 @@ div.month_name {
     display: flex;
     flex-direction: row;
     width: 100%;
-    place-content: center;
+    align-items: center;
+    justify-content: space-between;
     gap: 1.5rem;
     font-size: 1.25rem;
 }
