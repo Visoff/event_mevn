@@ -58,7 +58,7 @@ div.month_name {
     padding: 0 .5rem;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: calc(100% - 1rem);
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
