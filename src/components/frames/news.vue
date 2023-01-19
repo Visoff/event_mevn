@@ -28,6 +28,14 @@ div.news {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: red;
+}
+
+div.news > div {
+    margin: 1rem;
+    margin-left: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding: 0.25rem;
+    background-color: #ffffff40;
+    padding-bottom: 1.75rem;
 }
 </style>
