@@ -1,7 +1,5 @@
 <template>
-    <div class="news">
-        <div v-for="post in posts" :key="post">{{ post }}</div>
-    </div>
+    <div v-for="post in posts" :key="post">{{ post }}</div>
 </template>
 
 <script>
@@ -10,7 +8,7 @@ export default {
     name:"news-page",
     data() {
         return {
-            posts:["hello", "it is I"]
+            posts:["123"]
         }
     },
     mounted() {
@@ -20,7 +18,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>
