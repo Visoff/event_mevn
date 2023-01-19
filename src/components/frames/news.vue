@@ -31,11 +31,21 @@ div.news {
 }
 
 div.news > div {
+    position: relative;
     margin: 1rem;
     margin-left: 2.5rem;
     margin-bottom: 2.5rem;
     padding: 0.25rem;
     background-color: #ffffff40;
     padding-bottom: 1.75rem;
+}
+
+div.news > div::before {
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    width: 3rem;
+    aspect-ratio: 1;
+    content: url("https://visoff.ru/assets/CityHeroes_Icon.svg");
 }
 </style>
