@@ -2,7 +2,7 @@
     <div class="profile-page">
         <div class="upper">
             <icon></icon>
-            <div class="name">{{ user.name }}</div>
+            <div class="name">{{ user["name"] }}</div>
         </div>
         <div class="details">
             По образованию: лох
@@ -25,15 +25,14 @@ export default {
     data() {
         return {
             user:{
-                icon:undefined,
-                name:"Викештий"
+                "icon":undefined,
+                "name":"Викештий"
             }
         }
     },
     mounted() {
-        axios.get("https://visoff.ru/api/db/select/user/").then(response => {
-            //this.user = response.data[0]
-            console.log(response.data)
+        axios.post("https://visoff.ru/api/db/user/getBy/id", JSON.stringify({"id":1}), {headers:{"Content-Type":"application/json"}}).then(response => {
+            this.user = response.data
         })
     }
 }
