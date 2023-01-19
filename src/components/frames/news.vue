@@ -1,6 +1,6 @@
 <template>
     <div class="news">
-        <div v-for="post in posts" :key="post">{{ post }}</div>
+        <div v-for="post in posts" :key="post"><div class="icon"></div>{{ post }}</div>
     </div>
 </template>
 
@@ -46,7 +46,16 @@ div.news > div::before {
     left: -1.5rem;
     width: 3rem;
     aspect-ratio: 1;
-    content: "";
+    background-color: #00000040;
+    border-radius: 50%;
+}
+
+div.news > div > div.icon {
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    width: 3rem;
+    aspect-ratio: 1;
     background-image: url("https://visoff.ru/assets/svg/CityHeroes_Icon.svg");
     background-position: 0;
     background-size: 100%;
