@@ -8,7 +8,7 @@
 
 <script>
 import news from "./news.vue"
-import chats from "./chats.vue"
+//import chats from "./chats.vue"
 import schedule from "./schedule.vue"
 import profile from "./profile.vue"
 
@@ -16,7 +16,7 @@ export default {
     props:["activeFrame"],
     components:{
         news,
-        chats,
+        //chats,
         schedule,
         profile
     }
