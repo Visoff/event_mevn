@@ -26,17 +26,17 @@ data() {
                 name:"Лента",
                 icon:"https://visoff.ru/assets/svg/news.svg"
             },
-            {
+            /*{
                 name:"Чаты",
                 icon:"https://visoff.ru/assets/svg/message.svg"
             },
             {
                 name:"Qr",
                 icon:"https://visoff.ru/assets/svg/CityHeroes_Icon.svg"
-            },
+            },*/
             {
                 name:"Расписание",
-                icon:"https://visoff.ru/assets/svg/history.svg"
+                icon:"https://visoff.ru/assets/svg/map.svg"
             },
             {
                 name:"Провиль",
