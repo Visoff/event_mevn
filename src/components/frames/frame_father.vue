@@ -1,10 +1,8 @@
 <template>
     <div class="frameFrather">
         <news v-if="activeFrame == 0" />
-        <chats v-if="activeFrame == 1" />
-        <news v-if="activeFrame == 2" />
-        <schedule v-if="activeFrame == 3" />
-        <profile v-if="activeFrame == 4" />
+        <schedule v-if="activeFrame == 1" />
+        <profile v-if="activeFrame == 2" />
     </div>
 </template>
 
