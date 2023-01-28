@@ -1,3 +1,5 @@
+//gpt = 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
+//
 class User {
     constructor() {
         this.id = 0
