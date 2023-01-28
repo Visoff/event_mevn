@@ -24,23 +24,23 @@ data() {
         frames:[
             {
                 name:"Лента",
-                icon:"https://visoff.ru/ecosystem/svg/arrow.svg"
+                icon:"https://visoff.ru/assets/svg/news.svg"
             },
-            {
+            /*{
                 name:"Чаты",
-                icon:"https://visoff.ru/ecosystem/svg/arrow.svg"
+                icon:"https://visoff.ru/assets/svg/message.svg"
             },
             {
                 name:"Qr",
-                icon:"https://visoff.ru/ecosystem/svg/arrow.svg"
-            },
+                icon:"https://visoff.ru/assets/svg/CityHeroes_Icon.svg"
+            },*/
             {
                 name:"Расписание",
-                icon:"https://visoff.ru/ecosystem/svg/arrow.svg"
+                icon:"https://visoff.ru/assets/svg/map.svg"
             },
             {
                 name:"Провиль",
-                icon:"https://visoff.ru/ecosystem/svg/arrow.svg"
+                icon:"https://visoff.ru/assets/svg/profile.svg"
             }
         ],
         activeFrame:3,

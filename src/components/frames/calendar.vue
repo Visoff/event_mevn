@@ -1,10 +1,23 @@
 <template>
     <div class="month_name">
-        <div class="prev">\</div>
-        {{ new Date().toLocaleString("ru", {month:"long"}) }}
-        <div class="next">/</div>
+        <div>
+            {{ new Date().toLocaleString("ru", {month:"long"}) }}
+        </div>
+        <div>
+            <div class="prev">\</div>
+            <div class="next">/</div>
+        </div>
     </div>
     <div class="calendar">
+        <div class="row">
+            <div class="ele">Пн</div>
+            <div class="ele">Вт</div>
+            <div class="ele">Ср</div>
+            <div class="ele">Чт</div>
+            <div class="ele">Пт</div>
+            <div class="ele hol">Сб</div>
+            <div class="ele hol">Вс</div>
+        </div>
         <div v-for="row in calendar" :key="row" class="row">
             <div v-for="el in row" :key="el" :class="(() => {var a = ''; if (el.current) {a+=' current'}; return 'el'+a})()">{{ el.date }}</div>
         </div>
@@ -42,12 +55,20 @@ export default {
 
 <style>
 div.month_name {
+    padding: 0 .5rem;
     display: flex;
     flex-direction: row;
-    width: 100%;
-    place-content: center;
+    width: calc(100% - 1rem);
+    align-items: center;
+    justify-content: space-between;
     gap: 1.5rem;
     font-size: 1.25rem;
+}
+
+div.month_name > div:last-child {
+    display: flex;
+    flex-direction: row;
+    gap: .25rem;
 }
 
 div.calendar {
@@ -65,12 +86,13 @@ div.row {
     place-items: center;
 }
 
-div.el {
+div.ele.hol {color: red;}
+div.el, div.ele {
     display: grid;
     place-items: center;
 }
 
 div.el:not(.current) {
-    color: #000000a0;
+    color: #BFBFBF;
 }
 </style>
